@@ -1,0 +1,165 @@
+//Mastering React Interview questions 
+
+1. React is declarative
+:- with declarative, we just tell what to do and in Imperative, we also tell how to do.
+:- with React,we create a component and tell that- how we want the DOM to be and rest is handles by react
+
+2. Babel acts as a compiler/transpiler - helping to write the HTML inside javascript
+
+3. HTML written inside javascript is called as the JSX.
+
+4. what is Props:- the data passed as an attribute in the component tag- that is passed as an 'Object Literal' in the function.
+
+5. For react boiler Plate or Scaffolding- type npx create-react-app ./
+
+6. create-react-app is a CLI helps to create prerequisite environment for a react project
+
+7. Destructuring means getting individual pieces from a data structure like arrays or object literals.
+const {name,age}=props;
+
+8. props are immutable,we cannot change props.
+
+9. useState() has a facility to create a state in Functional component.
+useState() always returns one array with two elements:- 
+1. arr[0]=state value -> value which we have given of the state
+2. arr[1]=setter function ->  a function which allows you to change the state value
+const [stateValue,setter function]=useStae(0)
+
+10. State basically contains the data which changes & it is the data that user can see
+
+11. lazy initial state:- 
+
+function initialState(){
+    console.log("expensive process:- "+Datenow());
+    return 0;
+}
+export default function App(){
+    const[cnt,setCount]=useState(()=>initialState());
+}
+
+12. In event handling, if you need to pass parameters in the function,arrow function is easiest approach
+onClick={()=>changeCounter('+')}
+
+13. the React.component needs to be extended to create a class component
+
+14. render() is a component lifecycle method which must be defined in all class component
+
+15. render() is needed when you have a clas component so whatever and whenever state are updated,this method will be called.
+
+16. render() is containing the jsx which is the user interface.
+
+17. render() gets executed when the component was loaded
+
+18. render() gets executed when there is an update in the component
+
+19. when we make api end point calls , we also write that code in ComponentDidMount().
+
+20. ComponentWillUnmount() is executed when the component is removed from the DOM tree.
+
+21. The Component Lifecycle:- 4 methods
+    1. MOUNTING:- 
+       a.constructor()
+       b.static getDerivedStateFromProps()
+       c.render()
+       d.ComponentDidMount()
+    
+    2. UPDATING:- 
+       a. static getDerivedStateFromProps()
+       b. shouldComponentUpdate() :- if this method is placed, and doesn't return true then it will stop re-rendering
+       c. render()
+       d. getSnapshotBeforeUpdate()
+       e. ComponentDidUpdate
+
+    3. UNMOUNTING:- 
+       a. ComponentWillUnmount
+
+    4. ERROR HANDLING:- 
+       a. componentDidCatch()
+
+
+22. The main purpoose of lifecycle methods is to execute pieces of codes depending on the sequence.
+
+23. useEffect() hook is a hook that is used for lifecycle method in function component.
+
+24. useEffect() hook is called everytime when the component is rendered or re-rendered.
+
+25. Mutations ,subscriptions,timers,logging are not allowed inside the main body of a function component(inside return)
+
+26. Refs provides a way to access DOM nodes or React elements created in the render method.
+
+27. when we need to use ref:- 
+    a. Managing focus,text selection,or media playback
+    b. Trigerring animations
+    c. Integrating with third party DOM libraries.
+
+28. when it comes to referring directly the element- we use the "ref" .
+
+29. The ref,createRef() or useRef() are used to get the reference of the elements.
+
+30. React.memo() and useCallback() concept is about implementing performance optimization.
+
+31. Memoization is a term used in computing for optimizing the performance by storing the results of expensive functions and returning the cached result.
+
+32. useMemo() and useCallback() do the same job, but syntax are different.
+
+33. useCallback(fn,dependencies) is equivalent to useMemo(()=>fn,dependencies)
+
+34. Key :- React needs to identify each rendered item with an "id" when the item needs to be added,changed or removed.
+
+35. the best way to pick a key is use to use a string that uniquely identifies a list item among its siblings.
+
+36. <Demo value /> here, value is props, if there is no value given to the attribute, props will default to true
+if you want to check:- props.value.toString() in child component
+
+37. Passing attributes with the spread operator is a fantastic short way when you are willing to pass object to props.
+e.g:- <ParentComponent {...product}/>
+
+38.  How do you access the content of the component?
+:- with the help of props.children property
+
+39. React.Fragment allows us to wrap the children without adding extra nodes(like <div> tag) to the DOM.
+
+40. Logical && operator is used with {} as we are writing the javascript expression.
+     Syntax:- {condition && HTML elements}, if the condition is true,then HTML elements will be rendered.
+
+41. Logical && is useful in single line component rendering.
+
+42. To craete a single page application in react, we have to use react router library.
+
+43.MPAs reload the HTML pages, SPAs loads the page once and then only it transmits the data between client and server.
+
+44. BrowserRouter component holds the entire application.
+
+45. Use the Route package to configure the routes.
+
+46. Link or NavLink is used in the menu to show the links.
+
+47. useLocation returns the current URL details in the object returned.
+
+48. There are 3 main steps to setup Context API:- 
+     1. Create Context
+     2. Provider
+     3. Consumer
+
+    step1:-  To create a context, we will use React.createContext() method.
+     syntax:- const MyContext= React.createContext(defaultValue); here, MyContext becomes global context object
+  here, the value passed in createContext is the initial or default value & we can later add or manipulate.
+  
+    step2:- Provider
+    const MyContext= React.createContext(0)
+    <MyContext.Provider value={value}>
+      <App/>
+    </MyContext.Provider>
+Provider is a react component available with the context object & we need to wrap around all the components who want to refer to the context. i.e.<App/>
+ now, we can use Consumer.
+
+49. MyContext.Consumer is a react component that is subscribed to context changes. It requires function as a child,the func. receives current context value.
+
+50. In newer React or hooks, React offers the useContext() hook,which is really easy to use.
+syntax:- const value=useContext(MyContext)
+
+51. we use useContext at the place of Consumer.bcoz in consumer, hame child function bna kar usme code krna padta tha.
+
+52. useContext takes the context as parameter & it returns the context value.
+
+53. Redux is an open-source JavaScript library for managing and centralizing application state.
